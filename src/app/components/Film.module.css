@@ -1,0 +1,86 @@
+.filmStrip {
+  width: calc(100% - 5rem);
+  border-radius: 10px;
+  display: flex;
+  margin: 0.3rem 0;
+  position: relative;
+  justify-content: space-between;
+}
+.filmStrip::before,
+.filmStrip::after {
+  content: "";
+  position: absolute;
+  width: 1rem;
+  height: 100%;
+  background: repeating-linear-gradient(
+    #cbcbcb,
+    #cbcbcb 1.4rem,
+    transparent 1.2rem,
+    transparent 2.3rem
+  );
+}
+
+.filmStrip::before {
+  left: -1.5rem;
+}
+
+.filmStrip::after {
+  right: -1.5rem;
+}
+
+.filmFrame {
+  border-radius: 5px;
+  font-size: 18px;
+  flex: 1;
+}
+
+.content {
+  background-color: #cbcbcb;
+  color: black;
+  display: flex;
+  max-height: 60rem;
+  border-radius: 2px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2rem;
+  overflow: auto;
+  min-height: 35rem;
+}
+
+.content p {
+  padding: 1rem;
+}
+
+.storyImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.storyVideo {
+  width: 100%;
+}
+
+.dateText {
+  font-size: 12px;
+  text-align: end;
+  color: #aaa;
+}
+
+.deleteButton {
+  background-color: unset;
+  border: none;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  opacity: 0.8;
+}
+
+.filmHeader {
+  display: flex;
+  align-items: center;
+  padding: 0.3rem;
+  justify-content: space-between;
+}

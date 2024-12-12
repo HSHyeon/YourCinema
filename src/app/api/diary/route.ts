@@ -13,6 +13,7 @@ export async function GET(req: Request) {
 
   const diaries = await diaryCollection
     .find()
+    .sort({ creation_timestamp: -1 }) // creation_timestamp 기준 내림차순 정렬
     .skip((page - 1) * limit) // skip 처리
     .limit(limit) // limit 처리
     .toArray();
