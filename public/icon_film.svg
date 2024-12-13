@@ -1,0 +1,18 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 그라디언트 정의 -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF735A" />
+      <stop offset="100%" stop-color="#E23030" />
+    </linearGradient>
+  </defs>
+
+  <!-- 원과 경로에 그라디언트 적용 -->
+  <circle cx="22" cy="16" r="4" fill="url(#gradient)" />
+  <circle cx="22" cy="32" r="4" fill="url(#gradient)" />
+  <circle cx="14" cy="24" r="4" fill="url(#gradient)" />
+  <circle cx="30" cy="24" r="4" fill="url(#gradient)" />
+  <circle cx="22" cy="24" r="1" fill="url(#gradient)" />
+  <circle cx="41" cy="41" r="1" fill="url(#gradient)" />
+  <path d="M36.9123 41H22C12.6112 41 5 33.3888 5 24C5 14.6112 12.6112 7 22 7C31.3888 7 39 14.6112 39 24C39 28.4995 37.2519 32.5907 34.3979 35.6316C33.621 36.4593 32.7621 37.2093 31.8343 37.8684" stroke="url(#gradient)" stroke-width="2" stroke-linecap="round" />
+</svg>
