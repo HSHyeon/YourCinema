@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useInfiniteQuery } from "react-query";
 import styles from "./Diary.module.css";
-import Film from "./components/Film";
-import Header from "./components/Header";
+import Film from "./components/film/Film";
+import Header from "./components/header/Header";
 import { Diary } from "./types";
 
 const fetchDiaries = async ({ pageParam = 1 }) => {
@@ -17,6 +17,7 @@ const fetchDiaries = async ({ pageParam = 1 }) => {
 
 const Home = () => {
   const bottomRef = useRef<HTMLDivElement | null>(null);
+  const bottomRefCurrent = useRef<HTMLDivElement | null>(null);
 
   const {
     data,
@@ -31,31 +32,33 @@ const Home = () => {
     },
   });
 
-  // Intersection Observer로 페이지가 바닥에 가까워지면 fetchNextPage 호출
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !isFetchingNextPage && hasNextPage) {
+          console.log("dd");
           fetchNextPage();
         }
       },
-      { rootMargin: "100px" }
+      { rootMargin: "100px" },
     );
 
-    if (bottomRef.current) {
-      observer.observe(bottomRef.current);
+    bottomRefCurrent.current = bottomRef.current;
+
+    if (bottomRefCurrent.current) {
+      observer.observe(bottomRefCurrent.current);
     }
 
     return () => {
-      if (bottomRef.current) {
-        observer.unobserve(bottomRef.current);
+      if (bottomRefCurrent.current) {
+        observer.unobserve(bottomRefCurrent.current);
       }
     };
   }, [isFetchingNextPage, hasNextPage, fetchNextPage]);
 
   return (
     <>
-      <Header />{" "}
+      <Header />
       <div className={styles.diary}>
         {isLoading && <div>Loading...</div>}
         {isError && <div>Error loading diaries</div>}
@@ -67,7 +70,7 @@ const Home = () => {
           </React.Fragment>
         ))}
         {isFetchingNextPage && <div>Loading more...</div>}
-        <div ref={bottomRef}></div>
+        <div ref={bottomRef}>last film</div>
       </div>
     </>
   );

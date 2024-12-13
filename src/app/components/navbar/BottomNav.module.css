@@ -1,7 +1,7 @@
 .bottomNav {
   z-index: 100;
   background-color: black;
-  padding: 1.2rem;
+  padding: 10px;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -22,19 +22,17 @@
 .navList {
   list-style-type: none;
   display: flex;
-  gap: 7rem;
+  gap: 4rem;
   box-sizing: border-box;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .navItem {
   margin: 0;
+  cursor: pointer;
+  padding: 0.35rem;
 }
-.navLink img {
-  display: block;
-  height: 100%;
-  width: auto;
-}
+
 .navLink {
   text-decoration: none;
   color: white;
@@ -47,4 +45,12 @@
 
 .navLink:hover {
   filter: unset;
+}
+.active {
+  filter: unset;
+}
+.navLink img {
+  display: block;
+  height: 100%;
+  width: auto;
 }

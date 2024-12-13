@@ -1,10 +1,9 @@
 "use client";
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
-import { usePathname } from "next/navigation";
-import BottomNav from "./components/BottomNav";
+// import { usePathname } from "next/navigation";
+import BottomNav from "./components/navbar/BottomNav";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const geistSans = Geist({
@@ -28,10 +27,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const pathname = usePathname(); // 현재 경로를 가져옵니다.
+  // const pathname = usePathname(); // 현재 경로를 가져옵니다.
 
-  // '/diary' 경로에서는 헤더를 숨기고, 그 외에는 표시
-  const showHeader = pathname !== "/add";
+  // // '/diary' 경로에서는 헤더를 숨기고, 그 외에는 표시
+  // const showHeader = pathname !== "/add";
 
   return (
     <html lang="en">
