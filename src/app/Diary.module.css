@@ -5,6 +5,23 @@
   height: 100%;
   overflow: auto;
   width: 100%;
+  position: relative;
   margin: 0 auto;
-  margin-bottom: 6rem;
+}
+
+.diary::-webkit-scrollbar {
+  width: 8px;
+}
+
+.diary::-webkit-scrollbar-thumb {
+  background: #444; /* 어두운 색상 */
+  border-radius: 4px;
+}
+
+.diary::-webkit-scrollbar-thumb:hover {
+  background: #222; /* 호버 시 더 어두운 색상 */
+}
+
+.diary::-webkit-scrollbar-track {
+  background: #1a1a1a; /* 트랙 색상 */
 }

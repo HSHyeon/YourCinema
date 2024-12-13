@@ -9,22 +9,17 @@ function BottomNav() {
         <ul className={styles.navList}>
           <li className={styles.navItem}>
             <Link href="/" className={styles.navLink}>
-              HOME
+              <img src="icon_movie.svg" />
             </Link>
           </li>
           <li className={styles.navItem}>
             <Link href="/calendar" className={styles.navLink}>
-              CALENDAR
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/about" className={styles.navLink}>
-              REVIEW
+              <img src="icon_ticket.svg" />
             </Link>
           </li>
           <li className={styles.navItem}>
             <Link href="/add" className={styles.navLink}>
-              ADD
+              <img src="icon_film.svg" />
             </Link>
           </li>
         </ul>

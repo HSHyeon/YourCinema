@@ -1,6 +1,6 @@
 .header {
-    padding: 1rem;
-    height: 0rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
+  padding: 1rem;
+  position: sticky;
+  display: flex;
+  box-shadow: 1px 1px 5px rgba(148, 148, 148, 0.3);
+}

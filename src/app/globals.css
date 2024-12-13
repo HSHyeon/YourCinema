@@ -30,6 +30,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.pages {
+  position: relative;
+  max-height: calc(100vh - 4.5rem);
+}
 * {
   box-sizing: border-box;
   padding: 0;
@@ -45,4 +49,16 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+button {
+  background-color: unset;
+  border: unset;
+  height: 2rem;
+  box-sizing: border-box;
+}
+button img {
+  display: block;
+  height: 100%;
+  width: auto;
 }
