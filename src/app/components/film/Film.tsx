@@ -54,77 +54,79 @@ const Film = ({ diary }: DiaryProps) => {
   if (!isValid) {
     return null;
   }
-
   return (
     <>
-      <div className={styles.filmStrip}>
-        <div className={styles.filmFrame}>
-          <div className={styles.filmHeader}>
-            <p>{diary.title}</p>
-            <div className={styles.selectWrapper}>
-              <button
-                className={styles.deleteButton}
-                onClick={handleToggleModal} // 모달 토글
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="24"
+      <div className={styles.filmContainer}>
+        <div className={styles.filmStrip}>
+          <div className={styles.filmFrame}>
+            <div className={styles.filmHeader}>
+              <p>{diary.title}</p>
+              <div className={styles.selectWrapper}>
+                <button
+                  className={styles.deleteButton}
+                  onClick={handleToggleModal} // 모달 토글
                 >
-                  <circle cx="12" cy="6" r="1.5" fill="white" />
-                  <circle cx="12" cy="12" r="1.5" fill="white" />
-                  <circle cx="12" cy="18" r="1.5" fill="white" />
-                </svg>
-              </button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                  >
+                    <circle cx="12" cy="6" r="1.5" fill="white" />
+                    <circle cx="12" cy="12" r="1.5" fill="white" />
+                    <circle cx="12" cy="18" r="1.5" fill="white" />
+                  </svg>
+                </button>
 
-              {/* 모달이 열릴 때만 표시 */}
-              {isModalOpen && (
-                <div
-                  className={styles.modal}
-                  ref={modalRef} // 모달 영역 참조
-                  onClick={handleDelete} // 삭제 버튼
-                >
-                  삭제
-                </div>
-              )}
+                {/* 모달이 열릴 때만 표시 */}
+                {isModalOpen && (
+                  <div
+                    className={styles.modal}
+                    ref={modalRef} // 모달 영역 참조
+                    onClick={handleDelete} // 삭제 버튼
+                  >
+                    삭제
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-          <div key={diary.uri}>
-            <div className={styles.content}>
-              {diary.uri ? (
-                fileExtension === "mp4" ||
-                fileExtension === "mov" ||
-                fileExtension === "avi" ? (
-                  <video
-                    className={styles.storyVideo}
-                    src={diary.uri}
-                    controls
-                    onError={handleError}
-                  />
+            <div key={diary.uri}>
+              <div className={styles.content}>
+                {diary.uri ? (
+                  fileExtension === "mp4" ||
+                  fileExtension === "mov" ||
+                  fileExtension === "avi" ? (
+                    <video
+                      className={styles.storyVideo}
+                      src={diary.uri}
+                      controls
+                      onError={handleError}
+                    />
+                  ) : (
+                    <img
+                      className={styles.storyImg}
+                      src={diary.uri}
+                      alt="Story Image"
+                      onError={handleError}
+                    />
+                  )
                 ) : (
-                  <img
-                    className={styles.storyImg}
-                    src={diary.uri}
-                    alt="Story Image"
-                    onError={handleError}
-                  />
-                )
-              ) : (
-                <p>
-                  {diary.text?.split("\n").map((line, index) => (
-                    <React.Fragment key={index}>
-                      {index > 0 && <br />}
-                      {line}
-                      <br />
-                    </React.Fragment>
-                  ))}
-                </p>
-              )}
+                  <p>
+                    {diary.text?.split("\n").map((line, index) => (
+                      <React.Fragment key={index}>
+                        {index > 0 && <br />}
+                        {line}
+                        <br />
+                      </React.Fragment>
+                    ))}
+                  </p>
+                )}
+              </div>
             </div>
-            <p className={styles.dateText}>{formattedDate}</p>
           </div>
         </div>
+        <div className={styles.dateText}>{formattedDate}</div>{" "}
+        {/* 오른쪽에 배치 */}
       </div>
     </>
   );

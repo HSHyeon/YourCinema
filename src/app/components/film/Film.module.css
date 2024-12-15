@@ -1,11 +1,33 @@
-.filmStrip {
-  width: calc(100% - 4rem);
-  border-radius: 10px;
+.filmContainer {
   display: flex;
-  margin: 0.3rem 0;
+  align-items: flex-start;
+  gap: 1.8rem;
+  width: 100%;
+}
+
+.filmStrip {
+  flex: 1;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1.6rem;
   position: relative;
   justify-content: space-between;
 }
+
+.dateText {
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  font-size: 12px;
+  font-weight: 500;
+  color: #d5b500;
+  padding-inline: 0.6rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .filmStrip::before,
 .filmStrip::after {
   content: "";
@@ -14,7 +36,7 @@
   height: 100%;
   background: repeating-linear-gradient(
     #cbcbcb,
-    #cbcbcb 1.3rem,
+    #cbcbcb 1.2rem,
     transparent 1.2rem,
     transparent 2.2rem
   );
@@ -49,15 +71,32 @@
 .content {
   background-color: #cbcbcb;
   color: black;
+  border-radius: 1rem;
   display: flex;
   max-height: 60rem;
-  border-radius: 2px;
+  margin: 0.5rem;
   text-align: center;
   align-items: center;
   justify-content: center;
   line-height: 1.2rem;
   overflow: auto;
   min-height: 35rem;
+}
+.content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: #444; /* 어두운 색상 */
+  border-radius: 4px;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+  background: #222; /* 호버 시 더 어두운 색상 */
+}
+
+.content::-webkit-scrollbar-track {
+  background: #1a1a1a; /* 트랙 색상 */
 }
 
 .content p {
@@ -66,19 +105,11 @@
 
 .storyImg {
   width: 100%;
-  height: 60rem;
   object-fit: contain;
 }
 
 .storyVideo {
   width: 100%;
-}
-
-.dateText {
-  font-size: 12px;
-  text-align: end;
-  padding: 4px;
-  color: #aaa;
 }
 
 .deleteButton {
@@ -92,8 +123,10 @@
 }
 
 .filmHeader {
+  position: absolute;
   display: flex;
+  width: 100%;
   align-items: center;
-  padding: 0.3rem;
+  padding: 1.6rem 1.2rem;
   justify-content: space-between;
 }
